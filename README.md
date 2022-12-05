@@ -4,6 +4,9 @@ This is LA's first coding service project. It aims to come up with a system to d
 Prerequisites:
 
 must have at least `python3.7` or higher
+
+AND 
+
 ```
 bash ./preReq.sh
 ```
