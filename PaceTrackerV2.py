@@ -11,6 +11,7 @@ class Console:
             #if current time is between 2:00pm and 3:59pm
             if time.strftime("%H:%M") >= "14:00" and time.strftime("%H:%M") <= "16:00":
                 pac.Pac()
+                time.sleep(60)
             #else wait 60 seconds and check again
             else:
                 os.system('clear')
