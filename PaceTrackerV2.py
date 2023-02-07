@@ -5,14 +5,12 @@ import os
 import asyncio
 
 class Console:
-    #create function to execute main function
+    
     def execute(self):
         while True:
-            #if current time is between 2:00pm and 3:59pm
             if time.strftime("%H:%M") >= "14:00" and time.strftime("%H:%M") <= "16:00":
                 pac.Pac()
                 time.sleep(60)
-            #else wait 60 seconds and check again
             else:
                 os.system('clear')
                 #print in blue text "not in service hours of 2:00pm to 3:59pm"
@@ -28,7 +26,7 @@ class Console:
         #login
         self.username = username
         self.password = password
-        #checks authentication
+    
         if pac.login(self.username,self.password):
             print("Login Successful")
         else:
@@ -41,15 +39,13 @@ class Console:
                 print("\033[91m" + "Exiting..." + "\033[0m")
                 sys.exit()
             elif command == 'execute':
-                '''
-                code below is too compicated to explain at the AP compsci level
-                think of it as a way to run a function without interupting the main function
-                like asking siri 2 questions at once
-                '''
                 #execute self.execute() and run it in a new thread
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-                loop.run_in_executor(None, self.execute)
+                try:
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    loop.run_in_executor(None, self.execute)
+                except:
+                    exit()
                 while True:
                     command = input('Command: ')
                     if command == 'stop':
