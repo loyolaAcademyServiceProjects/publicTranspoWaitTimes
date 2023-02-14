@@ -6,7 +6,7 @@ import asyncio
 
 class Console:
     
-    def execute(self):
+    async def execute(self):
         while True:
             if time.strftime("%H:%M") >= "14:00" and time.strftime("%H:%M") <= "16:00":
                 pac.Pac()
