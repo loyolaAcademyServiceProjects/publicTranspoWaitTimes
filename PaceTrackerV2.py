@@ -33,7 +33,8 @@ class Console:
         else:
             print("Login Failed")
             sys.exit()
-        #create thread but don't start it; get commands
+        #create daemon thread so it terminates when main thread is done
+        #but don't start it; get commands
         updaterThread = threading.Thread(target=self.execute, daemon=True)
         while True:
             command = input('Command: ')
